@@ -12,6 +12,7 @@ export default class Singup extends Component{
                 <input name ='username' placeholder='Username' type='text' ></input>
                 <input name ='phone' placeholder='Phone Number' type='number' ></input>
                 <input name ='email' placeholder='Email' type='email' ></input>
+                <DatePicker selected={this.state.birthday} onChange={this.handleChange} />
                 <input name ='password' placeholder='Password' type='password' ></input>
                 <button type='submit'>Signup</button>
               </form>
