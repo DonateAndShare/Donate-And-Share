@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/DnSItems', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/DnSUsers', { useNewUrlParser: true });
 const db = mongoose.connection;
 
 db.on('error', function () {
@@ -14,7 +14,7 @@ db.once('open', function () {
 });
 
 
-let itemsSchema = new mongoose.Schema({
+let usersSchema = new mongoose.Schema({
   // _id: String,
   firstName: String,
   lasttName: String,
@@ -23,27 +23,17 @@ let itemsSchema = new mongoose.Schema({
   email: String,
   birthday: Date,
   password: String,
+  isLogin: Boolean,
   dateOfSignUp: { type: Date, default: Date.now },
   items: Array
 });
 
-let Items = mongoose.model('items', itemsSchema);
+let Users = mongoose.model('users', usersSchema);
 
-// Example function
-let readRepos = (cb) => {
-  Items.find({}, (err, data) => {
-    if (err) {
-      cb(err)
-    } else {
-      // console.log('data:', data);
-      cb(data)
-    }
-  })
-}
 
 
 module.exports = {
-  readRepos
+  Users
 }
 
 
