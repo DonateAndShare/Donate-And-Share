@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Signup from './Signup'
 export class Navbar extends Component {
 
 
@@ -10,7 +11,7 @@ export class Navbar extends Component {
 
                     <button className="btn btn-outline-info  col-12 col-lg-1 my-sm-0" type="button">login </button>
                     <button className="btn btn-outline-info  col-12 col-lg-1 my-sm-0" type="button">signup </button>
-
+                    <Signup />
                 </nav>
             </>
         );
