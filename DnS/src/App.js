@@ -1,8 +1,14 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+
+import Singup from './components/Signup';
+import Login from './components/Login'
+
+import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
 import User from './components/User';
 
 // import axios from 'axios';
+
 
 class App extends React.Component {
   state = {
@@ -40,7 +46,12 @@ class App extends React.Component {
 
     return (
       <>
-        <Navbar />
+
+        <Router>
+          <Navbar />
+          <Route path='/login' component={Login}/>
+          <Route path='/signup' component={Singup}/>
+        </Router>
         <User user={this.state.user} />
         
       </>

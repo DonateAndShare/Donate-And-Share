@@ -14,7 +14,9 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.6.9"
+    "mongoose": "^5.6.9",
+    "react-datepicker": "^2.9.4"
+
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
