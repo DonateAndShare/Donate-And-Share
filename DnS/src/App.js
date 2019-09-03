@@ -6,6 +6,10 @@ import Login from './components/Login'
 
 import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
 import User from './components/User';
+// import DetailsModule from './components/DetailsModule';
+// import SearchItem from './components/SearchItem'
+// import ShortDetails from './components/ShortDetails';;
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 // import axios from 'axios';
 
@@ -43,6 +47,15 @@ class App extends React.Component {
  
   
   render() {
+    const routing = (
+      <Router>
+        <div>
+          <Route path="/" component={App} />
+          <Route path="/users" component={User} />
+          {/* <Route path="/contact" component={Additem} /> */}
+        </div>
+      </Router>
+    )
 
     return (
       <>
@@ -53,6 +66,10 @@ class App extends React.Component {
           <Route path='/signup' component={Singup}/>
         </Router>
         <User user={this.state.user} />
+        {/* <ShortDetails/>
+        <SearchItem/>
+        <DetailsModule/> */}
+
         
       </>
     );

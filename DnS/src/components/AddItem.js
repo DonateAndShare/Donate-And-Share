@@ -12,7 +12,7 @@ import axios from 'axios';
       location:"",
       locationDescription:"",
       phone:0,
-      // isAvalible:false,
+      
         //  image :""
     }
   }
@@ -48,28 +48,10 @@ import axios from 'axios';
         console.log(err);
       })
   };
-  // updateitem= (id,newitem) => {
-  //   console.log("helo",newitem)
-  //   axios.put(`http://localhost:9000/users/${id}`, newitem)
-  //     .then(res => {
-  //       console.log("helo",res)
   
-  //       this.setState({ items: res.data});
-  //       console.log(res.data)
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  // };
-
- 
-
-
- 
   render(){
-    const { itemName ,category,itemDescription,type,location,locationDescription,phone,isAvalible} = this.state.item
-     const {  onChange,cheked } = this  
-     
+    const { itemName ,category,itemDescription,type,location,locationDescription,phone} = this.state.item
+     const {  onChange } = this  
      
      return(
      <div>
@@ -90,7 +72,7 @@ import axios from 'axios';
  <div className="form-group col-md-6">
    
    <label >category</label>
-   {/* <input type="text" class="form-control" id="inputEmail4" placeholder=""  name='phone' value={itemName}  onChange={onChange}></input> */}
+   
    <select id="inputState" className="form-control" name='category'  onChange={onChange}>
         <option selected>Choose...</option>
                     <option >books</option>
@@ -133,14 +115,6 @@ import axios from 'axios';
     
    
   </div>
-  <div class="form-group">
-    <div class="form-check">
-      {/* <input class="form-check-input" type="checkbox" id="gridCheck" name=' isAvalible'  value={isAvalible}  onChange={cheked} /> */}
-      <label className="form-check-label" for="gridCheck">
-       isAvalible
-      </label>
-    </div>
-    </div>
  
   <button type="submit" class="btn btn-primary" onClick={this.additem} >create</button>
 
