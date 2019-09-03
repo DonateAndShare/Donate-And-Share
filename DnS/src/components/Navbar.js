@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Signup from './Signup'
-import Login from './Login'
+// import Signup from './Signup'
+// import Login from './Login'
 
-import {BrowserRouter as Router, Swich, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export class Navbar extends Component {
 
