@@ -16,7 +16,7 @@ import User from './components/User';
 // import ShortDetails from './components/ShortDetails';;
 
 // import axios from 'axios';
-
+import ShortDetails from './components/ShortDetails'
 
 class App extends React.Component {
   state = {
@@ -50,42 +50,22 @@ class App extends React.Component {
     
     }
   }
- 
-  
   render() {
-    // const routing = (
-    //   <Router>
-    //     <div>
-    //       {/* <Route path="/" component={App} /> */}
-      
-
-    //       {/* <Route path="/contact" component={Additem} /> */}
-    //     </div>
-    //   </Router>
-    // )component={User} />
-    
     return (
       <>
-
-
-
         <Router>
           <Navbar />
       <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
       <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
           {/* <Route path='/login' component={Login}/> */}
           <Route path='/signup' component={Singup}/>
-          {/* <User user={this.state.user} /> */}
+          <Navbar />
+        <ShortDetails/>
         </Router>
-
-        {/* <ShortDetails/>
-        <SearchItem/>
-      <DetailsModule/> */}
-
+        <User user={this.state.user} />
       </>
     );
   }
 }
 
 export default App;
-
