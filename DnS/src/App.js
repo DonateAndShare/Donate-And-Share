@@ -54,18 +54,19 @@ class App extends React.Component {
       <>
        <Router>
           <Navbar />
+
       <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
       <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
       <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/> 
       <Route path='/login' component={Login} />
       <Route path='/signup' component={Singup}/>
       <SearchItem/>
+          <ItemMapSlice users = {this.state.user.items}/>
 
       </Router>
         {/* <ShortDetails/>
         <SearchItem/>
       <DetailsModule/> */}
-
 
       </>
     );
