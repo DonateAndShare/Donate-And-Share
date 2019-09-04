@@ -12,6 +12,7 @@ app.use("/signup", require("./server/signup"));
 app.use("/account", require("./server/account"));
 app.use("/myItems", require("./server/myItems"));
 app.use("/addItem", require("./server/addItem"));
+app.use("/itemSlice", require("./server/itemSlice"));
 
 
 app.use("/searchBar", require("./server/searchBar"));

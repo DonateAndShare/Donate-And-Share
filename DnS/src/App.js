@@ -1,9 +1,8 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-
+import ShortDetails from './components/ShortDetails'
 import Singup from './components/Signup';
 import Login from './components/Login'
-
 import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
 import User from './components/User';
 
@@ -12,6 +11,7 @@ import User from './components/User';
 
 class App extends React.Component {
   state = {
+    user:{},
     items: [],
     user:{
       _id: "5d6d297e67298e183fc7ae2c",
@@ -47,19 +47,19 @@ class App extends React.Component {
     return (
       <>
 
+
+
         <Router>
           <Navbar />
           <Route path='/login' component={Login}/>
           <Route path='/signup' component={Singup}/>
         </Router>
         <User user={this.state.user} />
-        
+
       </>
     );
   }
 }
 
 export default App;
-
-
 
