@@ -9,16 +9,17 @@ import SearchItem from './components/SearchItem';
 import ItemMapSlice from './components/ItemMapSlice'
 import { BrowserRouter as Router, Swich, Route } from 'react-router-dom'
 import User from './components/User';
-
-// import DetailsModule from './components/DetailsModule';
+import DetialsMapModule from './components/DetialsMapModule'
 // import SearchItem from './components/SearchItem'
 // import ShortDetails from './components/ShortDetails';;
 
-// import axios from 'axios';
+import axios from 'axios';
 // import ShortDetails from './components/ShortDetails'
+const END_POINT = `http://localhost:9000`;
 
 class App extends React.Component {
   state = {
+    usr:{},
     items: [],
     user: {
       _id: "5d6d297e67298e183fc7ae2c",
@@ -48,19 +49,33 @@ class App extends React.Component {
 
     }
   }
+    SearchItemHandler = (input)=>{
+      axios
+      .get(END_POINT,input)
+      .then(res => {
+        const data=res.data
+        console.log('data', data)
+          this.setState({usr: {
+            data
+          } });
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
+    }
   render() {
     return (
       <>
        <Router>
           <Navbar />
-
-      <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
-      <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
-      <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/> 
-      <Route path='/login' component={Login} />
-      <Route path='/signup' component={Singup}/>
-      <SearchItem/>
+          <Route path="/users" component={props => (<User {...props} user={this.state.user} />)} />
+          <Route path="/users/addItem" component={props => (<Additem {...props} user={this.state.user} />)} />
+          <Route path='/login' component={Login} />
+          <Route path='/signup' component={Singup} />
+          
+          <User user={this.state.user} />
+          <SearchItem SearchItemHandler={this.SearchItemHandler}/>
           <ItemMapSlice users = {this.state.user.items}/>
 
       </Router>
