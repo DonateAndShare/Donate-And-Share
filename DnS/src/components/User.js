@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 // import NavBarUser from './NavBarUser';
+// import MyItem from './MyItem';
 
 // import AddItem  from './AddItem';
 // import axios from 'axios';
@@ -29,6 +30,7 @@ render(){
      
     {/* <AddItem  user={user}/> */}
     {/* <NavBarUser /> */}
+    {/* <MyItem/> */}
     </>
     )
 }

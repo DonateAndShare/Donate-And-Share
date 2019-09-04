@@ -2,13 +2,14 @@ import React from 'react';
 import Navbar from './components/Navbar';
 
 import Additem from './components/AddItem'
-
+import MyItem from './components/MyItem'
 
 import Singup from './components/Signup';
 // import Login from './components/Login'
 import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
 
 import User from './components/User';
+
 // import DetailsModule from './components/DetailsModule';
 // import SearchItem from './components/SearchItem'
 // import ShortDetails from './components/ShortDetails';;
@@ -18,6 +19,7 @@ import User from './components/User';
 
 class App extends React.Component {
   state = {
+
     user:{},
     items: [],
     user:{
@@ -48,7 +50,7 @@ class App extends React.Component {
     
     }
   }
- 
+  
   
   render() {
     // const routing = (
@@ -71,10 +73,15 @@ class App extends React.Component {
           <Navbar />
       <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
       <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
+      <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/>
           {/* <Route path='/login' component={Login}/> */}
           <Route path='/signup' component={Singup}/>
+          <Route path='/MyItem' component={MyItem}/>
+          
+
           {/* <User user={this.state.user} /> */}
         </Router>
+        
 
         {/* <ShortDetails/>
         <SearchItem/>

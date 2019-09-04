@@ -31,9 +31,9 @@ export class Navbar extends Component {
         <li>
           <Link exact to="/users/addItem">AddItem</Link>
         </li>
-        {/* <li>
-          <Link to="/contact">Contact</Link>
-        </li> */}
+        <li>
+          <Link to="/myItem"> myItem</Link>
+        </li>
       </ul>
                 <nav className="navbar navbar-expand-lg sticky-top navbar-light bg-light ">
                     <Link to='/login'>
