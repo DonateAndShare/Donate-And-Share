@@ -59,7 +59,7 @@ class App extends React.Component {
           
           <User user={this.state.user} />
           <SearchItem/>
-          {/* <ItemMapSlice users = {this.state.user.items}/> */}
+          <ItemMapSlice users = {this.state.user.items}/>
         </Router>
         
       </>
