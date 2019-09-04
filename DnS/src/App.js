@@ -1,13 +1,13 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-
-import Additem from './components/AddItem'
 import MyItem from './components/MyItem'
-
-import Singup from './components/Signup';
 // import Login from './components/Login'
-import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
-
+import Singup from './components/Signup';
+import Login from './components/Login'
+import Additem from './components/AddItem';
+import SearchItem from './components/SearchItem';
+import ItemMapSlice from './components/ItemMapSlice'
+import { BrowserRouter as Router, Swich, Route } from 'react-router-dom'
 import User from './components/User';
 
 // import DetailsModule from './components/DetailsModule';
@@ -15,18 +15,16 @@ import User from './components/User';
 // import ShortDetails from './components/ShortDetails';;
 
 // import axios from 'axios';
-
+// import ShortDetails from './components/ShortDetails'
 
 class App extends React.Component {
   state = {
-
-    user:{},
     items: [],
-    user:{
+    user: {
       _id: "5d6d297e67298e183fc7ae2c",
       items: [
         {
-          itemName: 'danadsf fdfdgf ',
+          itemName: 'Donats ',
           itemDescription: 'new book',
           category: 'books',
           type: 'donets',
@@ -47,45 +45,27 @@ class App extends React.Component {
       dateOfSignUp: '2019-09-01T17:06:32.227Z',
       isLogin: false,
       __v: 0
-    
+
     }
   }
-  
-  
-  render() {
-    // const routing = (
-    //   <Router>
-    //     <div>
-    //       {/* <Route path="/" component={App} /> */}
-      
 
-    //       {/* <Route path="/contact" component={Additem} /> */}
-    //     </div>
-    //   </Router>
-    // )component={User} />
-    
+  render() {
     return (
       <>
-
-
-
-        <Router>
+       <Router>
           <Navbar />
       <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
       <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
-      <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/>
-          {/* <Route path='/login' component={Login}/> */}
-          <Route path='/signup' component={Singup}/>
-          <Route path='/MyItem' component={MyItem}/>
-          
+      <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/> 
+      <Route path='/login' component={Login} />
+      <Route path='/signup' component={Singup}/>
+      <SearchItem/>
 
-          {/* <User user={this.state.user} /> */}
-        </Router>
-        
-
+      </Router>
         {/* <ShortDetails/>
         <SearchItem/>
       <DetailsModule/> */}
+
 
       </>
     );
@@ -93,4 +73,3 @@ class App extends React.Component {
 }
 
 export default App;
-
