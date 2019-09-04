@@ -15,9 +15,9 @@ class App extends React.Component {
     return (
       <>
         <Router>
-          <Navbar />
-          <Route path='/login' component={Login}/>
-          <Route path='/signup' component={Singup}/>
+          <Route exact path='/nav' component={Navbar}/>
+          <Route path='/nav/login' component={Login}/>
+          <Route path='/nav/signup' component={Singup}/>
         </Router>
 
       </>

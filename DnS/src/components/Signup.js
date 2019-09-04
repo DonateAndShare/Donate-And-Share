@@ -9,15 +9,12 @@ export default class Singup extends Component{
       username:'',
       phone:'',
       email:'',
-      // birthday: new Date(),
       birthday:'',
-      password:'',
+      password:''
+    
   }
 
   onChange = (e) => {
-    // if(e.target.name === 'user'){
-
-    // }
     this.setState({ [e.target.name]: e.target.value })
     console.log(this.state)
   }
@@ -38,33 +35,25 @@ export default class Singup extends Component{
 
 
 
-  onClick2 = (user, users) => {
-    console.log('USERname:',user)
-    console.log('newUSER:',users)
-
-    axios.post(`http://localhost:9000/signup/checkUsers`, user)
+  postuser = (user, username) => {
+    axios.get(`http://localhost:9000/signup/checkUsers/${username}`)
     .then(res => {
-      console.log('res', res.data)
-      
       if(res.data.length === 0){
-        console.log('IF:',res.data.value.user)
-      console.log('USER')
-
-        axios.post('http://localhost:9000/signup/users', {users})
+        alert ("will post")
+        axios.post('http://localhost:9000/signup/users', user)
         .then(res => {
           console.log(res.data)
-          this.setState({users: res.data.value.user})
-        } )
-      }else{
-        console.log('ELSE:',res.data)
+          this.state = res.data
+        })
+        }
+      else{
+        alert("dont post")
       }
-      // this.setState({checkUser: res.data})
-    })
+      })
   }
   
   onSubmit = (e) => {
     e.preventDefault();
-    // ${this.state.username}
   }
 
   render(){
@@ -84,7 +73,7 @@ export default class Singup extends Component{
                     </div>
               </div>
               <div className="form-group row">
-                  <label for="staticEmail" className="col-sm-4 col-form-label">Last Name</label>
+                  <label for="staticEmail" className="col-sm-4 col-form-label">User Name</label>
                   <div className="col-sm-8">
                     <input onChange={this.onChange} name ='username' placeholder='Username' type='text' ></input>
                     </div>
@@ -111,10 +100,8 @@ export default class Singup extends Component{
                   </div>
               </div>
                     <button className="btn btn-primary mb-2"  onClick={this.onClick.bind(this, this.state.users)} type='submit'>Signup</button>
-                    {/* {console.log(this.state.users)} */}
             </form>
-              <button onClick={this.onClick2.bind(this, this.state.username, this.state)} >get users</button>
-              {}
+              <button onClick={this.postuser.bind(this, this.state, this.state.username)} >get users</button>
           </>
       )
   }

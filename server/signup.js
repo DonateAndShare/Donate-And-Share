@@ -19,9 +19,10 @@ router.post('/users', (req, res) => {
     })
 });
 
-router.post('/checkUsers', (req, res) => {
+router.get('/checkUsers/:user', (req, res) => {
     console.log('checkUsers')
-    let user = req.body
+    // let user = req.par
+    let user = req.params.user
     console.log('GET USER:',user)
     mongo.readDataIf(user, (result) => {
         // console.log("RESULT GET")
