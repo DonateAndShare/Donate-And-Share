@@ -1,10 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-
-
-
 // import Login from './components/Login'
-
 import Singup from './components/Signup';
 import Login from './components/Login'
 import Additem from './components/AddItem';
@@ -61,11 +57,9 @@ class App extends React.Component {
           <Route path='/login' component={Login} />
           <Route path='/signup' component={Singup} />
           
-          <Navbar />
-          <ShortDetails />
           <User user={this.state.user} />
           <SearchItem/>
-          <ItemMapSlice users = {this.state.user.items}/>
+          {/* <ItemMapSlice users = {this.state.user.items}/> */}
         </Router>
         
       </>
