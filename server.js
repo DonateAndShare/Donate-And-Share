@@ -12,6 +12,7 @@ app.use("/signup", require("./server/signup"));
 app.use("/account", require("./server/account"));
 app.use("/myItems", require("./server/myItems"));
 app.use("/addItem", require("./server/addItem"));
+app.use("/itemSlice", require("./server/itemSlice"));
 
 
 app.use("/searchBar", require("./server/searchBar"));
@@ -19,7 +20,7 @@ app.use("/searchResult", require("./server/searchResult"));
 app.use("/itemDetails", require("./server/itemDetails"));
 
 app.use("/navBar", require("./server/navBar"));
-app.use("/`category`", require("./server/category"));
+app.use("/category", require("./server/category"));
 
 
 

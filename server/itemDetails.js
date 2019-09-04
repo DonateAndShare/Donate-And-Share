@@ -10,5 +10,10 @@ router.get('/test', (req, res) => {
         res.json(result);
     })
 });
+router.get('/users', (req, res) => {
+    mongo.readData((result) => {
+        res.json(result);
+    })
+});
 
 module.exports = router;
