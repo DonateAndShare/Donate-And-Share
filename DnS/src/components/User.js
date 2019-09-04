@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import NavBarUser from './NavBarUser';
+// import NavBarUser from './NavBarUser';
 
-import AddItem  from './AddItem';
-import axios from 'axios';
+// import AddItem  from './AddItem';
+// import axios from 'axios';
 class User extends Component{
     
 render(){
@@ -21,14 +21,14 @@ render(){
       </select>
     </div> */}
      
-      <Link  exact to="/users/addItem">
+      {/* <Link  exact to="/users/addItem">
         <button type="submit" onclick={this.additem}>AddItem</button>
-        </Link>
+        </Link> */}
         {/* <button type="submit" onclick={this.additem}>My item </button>
         <button type="submit" onclick={this.additem}>log out</button> */}
      
     {/* <AddItem  user={user}/> */}
-    <NavBarUser/>
+    {/* <NavBarUser /> */}
     </>
     )
 }

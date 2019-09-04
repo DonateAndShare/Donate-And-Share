@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
- let END_POINT="http://localhost:9000"
+import { Link } from 'react-router-dom'
+ let END_POINT="http://localhost:9000";
+
   class AddItem extends Component{
   state ={
     user:{},
@@ -125,9 +127,9 @@ import axios from 'axios';
     
    
   </div>
- 
+ <Link to='/user'> 
   <button type="submit" class="btn btn-primary" onClick={this.additem} >create</button>
-
+  </Link>
 
 </div>
          
