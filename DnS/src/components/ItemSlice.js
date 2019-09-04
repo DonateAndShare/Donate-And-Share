@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
 import axios from 'axios';
-export default class ShortDetails extends Component {
+const END_POINT = `http://localhost:9000`;
+
+export default class itemSlice extends Component {
   state = {
     
     item:{
-    date: new Date().toJSON().slice(0, 10).replace(/-/g, '/'),
+    date: "",
     Tiltle:"",
     rating: 0,
     img:"",
@@ -19,8 +21,7 @@ export default class ShortDetails extends Component {
   };
   getItem = () => {
     axios
-      .get(`http://localhost:9000/itemSlice/user`)
-      
+      .get(END_POINT)
       .then(res => {
         const data=res.data
           this.setState({item: {
@@ -54,14 +55,14 @@ export default class ShortDetails extends Component {
   }
 
   render() {
-    const { item } = this.state;
+    const { items } = this.props;
     return (
 
       <div>
-        <p>{item.Tiltle}</p>
+        <p>{items.itemName}</p>
         <img />
         <StarRatings
-          rating={item.rating}
+          // rating={items.rating}
           starRatedColor="orange"
           changeRating={this.changeRating}
           numberOfStars={5}
@@ -70,15 +71,15 @@ export default class ShortDetails extends Component {
           starSpacing="0px"
 
         />
-        <p>category:{item.category}</p>
+        <p>category:{items.category}</p>
           
-        <p> phone:{item.phone}  </p>
-    <p>location:{item.location}</p>
-    <p>  isAvalible:{item.isAvalible}</p>
-    <p>itemDescription:{item.itemDescription}</p>
+        <p> phone:{items.phone}  </p>
+    <p>location:{items.location}</p>
+    <p>  isAvalible:{items.isAvalible}</p>
+    <p>itemDescription:{items.itemDescription}</p>
 
 
-        <p >{item.date}</p>
+        <p >date:{items.date}</p>
 
 
 

@@ -3,13 +3,13 @@ import axios from 'axios';
 const END_POINT = `http://localhost:9000`
 
 export default class SearchItem extends Component {
-   
+
     state = {
         items: [],
         NewItem: {},
-        listofItem : ''
+        ListOfItem: ''
     }
-    
+
 
     getItem = () => {
         axios.get(END_POINT)
@@ -26,29 +26,29 @@ export default class SearchItem extends Component {
         let filter = input.toLowerCase();
         e.preventDefault();
         axios.get(END_POINT)
-        .then(res=>{
-            let getdata= res.data
-        })
-           
-        if(filter===getdata)
-        this.setState({
-            listofItem: filter
-        })
+            .then(res => {
+                let getdata = res.data
+            })
+
+        if (filter ===" getdata")
+            this.setState({
+                ListOfItem: filter
+            })
     }
 
     render() {
-        
+
         return (
 
             <div>
-                <form  onSubmit={this.seacrhHandler}>
-                <input type="text" placeholder="Search any things ....."
-                    id="input"
+                <form onSubmit={this.seacrhHandler}>
+                    <input type="text" placeholder="Search any things ....."
+                        id="input"
 
-                />
-                <button type="submit">Search</button>
+                    />
+                    <button type="submit">Search</button>
                 </form>
-                
+
             </div>
 
         )
