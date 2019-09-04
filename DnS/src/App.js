@@ -1,10 +1,19 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import ShortDetails from './components/ShortDetails'
+
+import Singup from './components/Signup';
+import Login from './components/Login'
+import Additem from './components/AddItem'
+
+
 import Singup from './components/Signup';
 import Login from './components/Login'
 import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
+
 import User from './components/User';
+// import DetailsModule from './components/DetailsModule';
+// import SearchItem from './components/SearchItem'
+// import ShortDetails from './components/ShortDetails';;
 
 // import axios from 'axios';
 
@@ -38,12 +47,23 @@ class App extends React.Component {
       dateOfSignUp: '2019-09-01T17:06:32.227Z',
       isLogin: false,
       __v: 0
+    
     }
   }
  
   
   render() {
+    // const routing = (
+    //   <Router>
+    //     <div>
+    //       {/* <Route path="/" component={App} /> */}
+      
 
+    //       {/* <Route path="/contact" component={Additem} /> */}
+    //     </div>
+    //   </Router>
+    // )component={User} />
+    
     return (
       <>
 
@@ -51,10 +71,16 @@ class App extends React.Component {
 
         <Router>
           <Navbar />
-          <Route path='/login' component={Login}/>
+      <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
+      <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
+          {/* <Route path='/login' component={Login}/> */}
           <Route path='/signup' component={Singup}/>
+          {/* <User user={this.state.user} /> */}
         </Router>
-        <User user={this.state.user} />
+
+        {/* <ShortDetails/>
+        <SearchItem/>
+      <DetailsModule/> */}
 
       </>
     );

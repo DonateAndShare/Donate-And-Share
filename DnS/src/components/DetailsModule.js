@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 const END_POINT = `http://localhost:9000`
 
 export default class DetailsModule extends Component{
