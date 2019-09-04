@@ -1,22 +1,26 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 
- import Singup from './components/Signup';
- import Login from './components/Login'
+import Singup from './components/Signup';
+import Login from './components/Login'
 import Additem from './components/AddItem'
 
-// import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
+
+import Singup from './components/Signup';
+import Login from './components/Login'
+import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
+
 import User from './components/User';
 // import DetailsModule from './components/DetailsModule';
 // import SearchItem from './components/SearchItem'
 // import ShortDetails from './components/ShortDetails';;
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 // import axios from 'axios';
 
 
 class App extends React.Component {
   state = {
+    user:{},
     items: [],
     user:{
       _id: "5d6d297e67298e183fc7ae2c",
@@ -63,6 +67,8 @@ class App extends React.Component {
     return (
       <>
 
+
+
         <Router>
           <Navbar />
       <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
@@ -71,17 +77,15 @@ class App extends React.Component {
           <Route path='/signup' component={Singup}/>
           {/* <User user={this.state.user} /> */}
         </Router>
+
         {/* <ShortDetails/>
         <SearchItem/>
       <DetailsModule/> */}
 
-        
       </>
     );
   }
 }
 
 export default App;
-
-
 
