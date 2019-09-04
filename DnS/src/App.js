@@ -1,23 +1,16 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 
-<<<<<<< HEAD
-import Additem from './components/AddItem'
 
 
-import Singup from './components/Signup';
 // import Login from './components/Login'
-import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
-=======
+
 import Singup from './components/Signup';
 import Login from './components/Login'
 import Additem from './components/AddItem';
 import SearchItem from './components/SearchItem';
 import ItemMapSlice from './components/ItemMapSlice'
 import { BrowserRouter as Router, Swich, Route } from 'react-router-dom'
-import ItemSlice from './components/ItemSlice';
->>>>>>> Short Item Done In react & Express
-
 import User from './components/User';
 // import DetailsModule from './components/DetailsModule';
 // import SearchItem from './components/SearchItem'
@@ -68,9 +61,9 @@ class App extends React.Component {
           <Route path='/login' component={Login} />
           <Route path='/signup' component={Singup} />
           
-          {/* <Navbar /> */}
-          {/* <ShortDetails /> */}
-          {/* <User user={this.state.user} /> */}
+          <Navbar />
+          <ShortDetails />
+          <User user={this.state.user} />
           <SearchItem/>
           <ItemMapSlice users = {this.state.user.items}/>
         </Router>
