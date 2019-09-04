@@ -1,13 +1,11 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 
-import Singup from './components/Signup';
-import Login from './components/Login'
 import Additem from './components/AddItem'
 
 
 import Singup from './components/Signup';
-import Login from './components/Login'
+// import Login from './components/Login'
 import {BrowserRouter as Router, Swich, Route } from 'react-router-dom'
 
 import User from './components/User';
