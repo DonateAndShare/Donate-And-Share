@@ -1,14 +1,32 @@
+
 const express = require("express");
 const cors = require("cors");
+// const app = express();
+
+// app.use(express.json())
 
 var router = express.Router();
-
 const mongo = require("../database/signup")
 
-router.get('/test', (req, res) => {
-    mongo.readData((result) => {
+router.post('/users', (req, res) => {
+    // console.log('PSOT')
+    let newUser = req.body;
+    // console.log('PSOT USR:',newUser)
+
+    mongo.addData(newUser, (result) => {
+        // console.log(result)
         res.json(result);
     })
 });
+
+router.post('/checkUsers', (req, res) => {
+    console.log('checkUsers')
+    let user = req.body
+    console.log('GET USER:',user)
+    mongo.readDataIf(user, (result) => {
+        // console.log("RESULT GET")
+        res.send(result)
+    })
+})
 
 module.exports = router;

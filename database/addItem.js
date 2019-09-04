@@ -12,7 +12,18 @@ let readData = (cb) => {
         }
     })
 }
+let additem =(newItem,cb) =>{
+Users.findByIdAndUpdate(newItem._id, newItem,(err,data)=>{
+    if(err){
+        cb(err)
+    }else {
+        cb(data)
+    }
+})
+
+}
 
 module.exports = {
-    readData
+    readData,
+    additem
 }
