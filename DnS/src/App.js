@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import MyItem from './components/MyItem'
 // import Login from './components/Login'
 import Singup from './components/Signup';
 import Login from './components/Login'
@@ -8,6 +9,7 @@ import SearchItem from './components/SearchItem';
 import ItemMapSlice from './components/ItemMapSlice'
 import { BrowserRouter as Router, Swich, Route } from 'react-router-dom'
 import User from './components/User';
+
 // import DetailsModule from './components/DetailsModule';
 // import SearchItem from './components/SearchItem'
 // import ShortDetails from './components/ShortDetails';;
@@ -17,7 +19,6 @@ import User from './components/User';
 
 class App extends React.Component {
   state = {
- 
     items: [],
     user: {
       _id: "5d6d297e67298e183fc7ae2c",
@@ -47,21 +48,25 @@ class App extends React.Component {
 
     }
   }
+
   render() {
     return (
       <>
-        <Router>
+       <Router>
           <Navbar />
-          <Route path="/users" component={props => (<User {...props} user={this.state.user} />)} />
-          <Route path="/users/addItem" component={props => (<Additem {...props} user={this.state.user} />)} />
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={Singup} />
-          
-          <User user={this.state.user} />
-          <SearchItem/>
-          {/* <ItemMapSlice users = {this.state.user.items}/> */}
-        </Router>
-        
+      <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
+      <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
+      <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/> 
+      <Route path='/login' component={Login} />
+      <Route path='/signup' component={Singup}/>
+      <SearchItem/>
+
+      </Router>
+        {/* <ShortDetails/>
+        <SearchItem/>
+      <DetailsModule/> */}
+
+
       </>
     );
   }
