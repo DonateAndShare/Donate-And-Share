@@ -12,7 +12,21 @@ let readData = (cb) => {
         }
     })
 }
+let allData = (cb) => {
+    Users.find({}, { items: [] }, (err, data) => {
+        if (err) {
+            cb(err)
+        } else {
+            // console.log('data:', data);
+            cb(data)
+        }
+    })
+ }
+
+  
+ 
 
 module.exports = {
-    readData
+    readData,
+    allData
 }
