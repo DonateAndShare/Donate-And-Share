@@ -1,9 +1,20 @@
 const db = require("../database")
-let Users = db.Users
+console.log('object', db)
+let Users = db.Users;
 
 
 let readData = (cb) => {
     Users.find({}, (err, data) => {
+        if (err) {
+            cb(err)
+        } else {
+            cb(data)
+        }
+    })
+}
+let getCategory = (searchtext, cb) => {
+    let regex = new RegExp(`${searchtext}`);
+    Users.find({}, { items: { $elemMatch: { category: { $regex: regex } } } }, (err, data) => {
         if (err) {
             cb(err)
         } else {
@@ -12,7 +23,7 @@ let readData = (cb) => {
         }
     })
 }
-
 module.exports = {
-    readData
+    readData,
+    getCategory
 }

@@ -20,6 +20,7 @@ app.use("/searchResult", require("./server/searchResult"));
 app.use("/itemDetails", require("./server/itemDetails"));
 
 app.use("/navBar", require("./server/navBar"));
+
 app.use("/category", require("./server/category"));
 
 

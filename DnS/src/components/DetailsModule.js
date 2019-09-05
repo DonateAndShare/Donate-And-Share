@@ -35,8 +35,6 @@ export default class DetailsModule extends Component{
                     <p>phone</p>
                     <p>itemDesctiption</p>
                     <p>img</p>
-
-
             </div>
         )
     }
