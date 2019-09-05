@@ -1,22 +1,29 @@
 const express = require("express");
 const cors = require("cors");
-let router = express.Router();
-const mongo = require("../database/category");
 
+var router = express.Router();
+
+const mongo = require("../database/itemSlice")
 
 router.get('/test', (req, res) => {
     mongo.readData((result) => {
         res.json(result);
     })
 });
-router.get('/search/:category', (req, res) => {
-    let searchText = req.params.category
-    console.log('req.body', searchText);
-    mongo.getCategory(searchText, (result) => {
+// router.get('/user', (req, res) => {
+//     console.log('itemslice')
+//     mongo.readData((result) => {
+//         console.log('result', result)
+//         console.log('result', result)
+//         res.json(result);
+//     })
+// });
+router.get('/allData', (req, res) => {
+    mongo.allData((result) => {
         let allItemsObj = [];
         let allItems = [];
         for (const key in result) {
-            // console.log('key', key);
+            console.log('key', key);
             // console.log('key.items', result[key].items);
             allItemsObj.push(result[key].items);
             // console.log('allItemsObj', allItemsObj);
@@ -29,5 +36,6 @@ router.get('/search/:category', (req, res) => {
         })
         res.json(allItems);
     })
-});
+ });
+
 module.exports = router;

@@ -26,6 +26,7 @@ let usersSchema = new mongoose.Schema({
   isLogin: Boolean,
   dateOfSignUp: { type: Date, default: Date.now },
   items: Array
+  
 });
 
 let Users = mongoose.model('users', usersSchema);
