@@ -1,6 +1,10 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import MyItem from './components/MyItem'
+import Categories from './components/Categories'
+
+// import ShortDetails from './components/ShortDetails'
+
 // import Login from './components/Login'
 import Singup from './components/Signup';
 import Login from './components/Login'
@@ -58,35 +62,46 @@ class App extends React.Component {
 
     }
   }
+
    setMyItem =()=>{
      console.log('done setMyItem')
      this.setState({item:this.state.user.items})
 
    }
 
+  searchItem = (resultSearch) => {
+    this.setState({items: resultSearch})
+    console.log(this.state.items)
+  }
+
   render() {
     return (
       <>
        <Router>
+
           <Navbar user={this.state.user} setMyItem={this.setMyItem} />
       <SearchItem/>
+
 
       <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
       <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
       {/* <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/>  */}
       <Route path='/login' component={Login} />
       <Route path='/signup' component={Singup}/>
+
       <Route path="/ItemMapSlice" component={props =>(<ItemMapSlice {...props}  items={this.state.user.items}/>)}/> 
 
           {/* <ItemMapSlice users = {this.state.user.items}/> */}
 
       </Router>
+      <Categories appState={this.searchItem}/>
         {/* <ShortDetails/>
         <SearchItem/>
       <DetailsModule/> */}
 
       </>
     );
+
   }
 }
 

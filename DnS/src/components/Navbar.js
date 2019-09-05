@@ -42,6 +42,7 @@ export class Navbar extends Component {
                     <Link  onClick={this.props.setMyItem} to="/" >
                 <button className="btn btn-outline-info  col-12 col-lg-1 my-sm-0">logout</button>
 
+
                     </Link>
                 
 

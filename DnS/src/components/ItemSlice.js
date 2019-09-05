@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StarRatings from 'react-star-ratings';
+// import StarRatings from 'react-star-ratings';
 import axios from 'axios';
 const END_POINT = `http://localhost:9000`;
 
@@ -64,10 +64,11 @@ getItem = () => {
     const { items } = this.props;
     return (
 
-      <div>
-        <h3>{items.itemName}</h3>
+      
+      <div style={{border: "2px solid black"}}>
+        <p>{items.itemName}</p>
         <img />
-        <StarRatings
+        {/* <StarRatings
           // rating={items.rating}
           starRatedColor="orange"
           changeRating={this.changeRating}
@@ -76,7 +77,7 @@ getItem = () => {
           starDimension="15px"
           starSpacing="0px"
 
-        />
+        /> */}
         <p>category:{items.category}</p>
           
         <p> phone:{items.phone}  </p>
