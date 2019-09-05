@@ -50,14 +50,16 @@ class App extends React.Component {
     }
   }
     SearchItemHandler = (input)=>{
+      console.log('input', input)
       axios
-      .get(END_POINT,input)
+      .get(`${END_POINT}/searchResult/search/${input.input}`)
       .then(res => {
         const data=res.data
         console.log('data', data)
-          this.setState({usr: {
+          this.setState({items: {
             data
           } });
+          if(data.length===0){alert("No Result found Pleses Seacrh Again")}
       })
       .catch(err => {
         console.log(err);

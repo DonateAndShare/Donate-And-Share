@@ -11,16 +11,7 @@ export default class SearchItem extends Component {
     }
 
 
-    getItem = () => {
-        axios.get(END_POINT)
-            .then(res => {
-                this.setState({
-                    items: [...this.state.items, res.data]
-                })
-            })
-
-    }
-
+    
     seacrhHandler = (e) => {
         e.preventDefault();
         let input=document.getElementById("input").value;
