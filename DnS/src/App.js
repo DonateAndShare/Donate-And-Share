@@ -60,7 +60,7 @@ class App extends React.Component {
     return (
       <>
        <Router>
-          {/* <Navbar /> */}
+         <Navbar />
 
       <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
       <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
