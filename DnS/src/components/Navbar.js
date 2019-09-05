@@ -36,10 +36,10 @@ export class Navbar extends Component {
         </li>
       </ul>
                 <nav className="navbar navbar-expand-lg sticky-top navbar-light bg-light ">
-                    <Link to='/login'>
+                    <Link to='/nav/login'>
                       <button className="btn btn-outline-info  col-12 col-lg-1 my-sm-0" type="button">login </button>
                     </Link>
-                    <Link to='/signup'>
+                    <Link to='/nav/signup'>
                       <button className="btn btn-outline-info  col-12 col-lg-1 my-sm-0" type="button">signup </button>
                     </Link>
                     {/* <Signup /> */}
