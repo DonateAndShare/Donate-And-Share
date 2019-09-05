@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default class Singup extends Component{
   state = {
@@ -41,6 +42,7 @@ export default class Singup extends Component{
   onClick2 = (user, users) => {
     console.log('USERname:',user)
     console.log('newUSER:',users)
+    
 
     axios.post(`http://localhost:9000/signup/checkUsers`, user)
     .then(res => {
@@ -54,6 +56,7 @@ export default class Singup extends Component{
         .then(res => {
           console.log(res.data)
           this.setState({users: res.data.value.user})
+          this.props.onClick('/users')
         } )
       }else{
         console.log('ELSE:',res.data)
@@ -110,8 +113,10 @@ export default class Singup extends Component{
                     <input onChange={this.onChange} name ='password' placeholder='Password' type='password' ></input>
                   </div>
               </div>
+              <Link to= '/users'>
                     <button className="btn btn-primary mb-2"  onClick={this.onClick.bind(this, this.state.users)} type='submit'>Signup</button>
                     {/* {console.log(this.state.users)} */}
+                    </Link>
             </form>
               <button onClick={this.onClick2.bind(this, this.state.username, this.state)} >get users</button>
               {}

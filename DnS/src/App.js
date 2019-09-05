@@ -33,6 +33,16 @@ class App extends React.Component {
           locationDescription: 'jam3a',
           isAvalible: true,
           image: ''
+        },{
+          itemName: 'batata ',
+          itemDescription: 'new book',
+          category: 'books',
+          type: 'donets',
+          phone: 799333626,
+          location: 'amman',
+          locationDescription: 'jam3a',
+          isAvalible: true,
+          image: ''
         }
       ],
       firstName: 'haya',
@@ -48,20 +58,27 @@ class App extends React.Component {
 
     }
   }
+   setMyItem =()=>{
+     console.log('done setMyItem')
+     this.setState({item:this.state.user.items})
+
+   }
 
   render() {
     return (
       <>
        <Router>
-          <Navbar />
+          <Navbar user={this.state.user} setMyItem={this.setMyItem} />
+      <SearchItem/>
 
       <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
       <Route path="/users/addItem" component={props =>(<Additem {...props} user={this.state.user}/>)}/>
-      <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/> 
+      {/* <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/>  */}
       <Route path='/login' component={Login} />
       <Route path='/signup' component={Singup}/>
-      <SearchItem/>
-          <ItemMapSlice users = {this.state.user.items}/>
+      <Route path="/ItemMapSlice" component={props =>(<ItemMapSlice {...props}  items={this.state.user.items}/>)}/> 
+
+          {/* <ItemMapSlice users = {this.state.user.items}/> */}
 
       </Router>
         {/* <ShortDetails/>
