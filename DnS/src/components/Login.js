@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 
 
 export default class Login extends Component{
@@ -63,7 +65,10 @@ export default class Login extends Component{
               <input name='username' type='text' placeholder='Email or Username' onChange={this.checkLogin}></input>
               <input name='password' type='password' placeholder='Password' onChange={this.checkLogin}></input>
             </form>
+            <Link to= '/users'>
               <button onClick={this.Login.bind(this, this.state.username, this.state.password)}>Login</button>
+              </Link>
+
               <a href = 'mailto: DonateAndShare@gmail.com' >Forget Password!</a>
             </>
         )

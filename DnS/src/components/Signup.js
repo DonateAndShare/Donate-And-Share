@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default class Singup extends Component{
   state = {
@@ -35,9 +36,10 @@ export default class Singup extends Component{
 
 
 
+
   postuser = (user, username) => {
     axios.get(`http://localhost:9000/signup/checkUsers/${username}`)
-    .then(res => {
+   .then(res => {
       if(res.data.length === 0){
         alert ("will post")
         axios.post('http://localhost:9000/signup/users', user)
@@ -47,7 +49,7 @@ export default class Singup extends Component{
         })
         }
       else{
-        alert("dont post")
+        alert("The username is already Exist ")
       }
       })
   }
@@ -56,6 +58,8 @@ export default class Singup extends Component{
     e.preventDefault();
   }
 
+  
+  
   render(){
       return(
           <>
@@ -99,7 +103,11 @@ export default class Singup extends Component{
                     <input onChange={this.onChange} name ='password' placeholder='Password' type='password' ></input>
                   </div>
               </div>
+              <Link to= '/users'>
                     <button className="btn btn-primary mb-2"  onClick={this.onClick.bind(this, this.state.users)} type='submit'>Signup</button>
+                    {/* {console.log(this.state.users)} */}
+                    </Link>
+
             </form>
               <button onClick={this.postuser.bind(this, this.state, this.state.username)} >get users</button>
           </>

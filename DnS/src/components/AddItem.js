@@ -27,16 +27,7 @@ import { Link } from 'react-router-dom'
   componentDidMount() {
     this.setState({user:this.props.user})
   }
-  // onSubmit = () => {
-  //   this.props.history.push('/')
-  // }
 
-
-  // changehandleritems=(handlerSubmit,additem)=>{
-  
-  //   handlerSubmit = () => {
-  //     this.props.history.push('/users')
-  //   };
 
     additem = () => {
       console.log('this.state.user', this.state.user)

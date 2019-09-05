@@ -17,9 +17,15 @@ export default class itemSlice extends Component {
     isAvalible:"",
     itemDescription:""
   }
-   
-  };
-  getItem = () => {
+
+  
+};
+
+componentWillUpdate(nextProps, nextState) {
+  console.log('object', this.peops.items);
+  this.setState({item:this.peops.items})
+}
+getItem = () => {
     axios
       .get(END_POINT)
       .then(res => {
@@ -58,6 +64,7 @@ export default class itemSlice extends Component {
     const { items } = this.props;
     return (
 
+      
       <div style={{border: "2px solid black"}}>
         <p>{items.itemName}</p>
         <img />
