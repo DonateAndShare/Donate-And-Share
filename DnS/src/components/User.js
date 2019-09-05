@@ -9,7 +9,7 @@ class User extends Component{
     
 render(){
    const{user}= this.props
-   console.log('user in user.js', user) 
+  //  console.log('user in user.js', user) 
    return(
      <>
     

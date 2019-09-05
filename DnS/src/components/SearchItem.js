@@ -11,29 +11,18 @@ export default class SearchItem extends Component {
     }
 
 
-    getItem = () => {
-        axios.get(END_POINT)
-            .then(res => {
-                this.setState({
-                    items: [...this.state.items, res.data]
-                })
-            })
-
-    }
-
+    
     seacrhHandler = (e) => {
-        let input = document.getElementById("in").value;
-        let filter = input.toLowerCase();
         e.preventDefault();
-        axios.get(END_POINT)
-            .then(res => {
-                let getdata = res.data
-            })
+        let input=document.getElementById("input").value;
+        console.log('input', input);
+        if (input==="" ) {
+            alert("Write in Search bar to show Items!")
+        }
+        else{
+        this.props.SearchItemHandler({input}) ;
 
-        if (filter ===" getdata")
-            this.setState({
-                ListOfItem: filter
-            })
+        }
     }
 
     render() {

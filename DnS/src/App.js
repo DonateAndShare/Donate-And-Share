@@ -13,16 +13,17 @@ import SearchItem from './components/SearchItem';
 import ItemMapSlice from './components/ItemMapSlice'
 import { BrowserRouter as Router, Swich, Route } from 'react-router-dom'
 import User from './components/User';
-
-// import DetailsModule from './components/DetailsModule';
+import DetialsMapModule from './components/DetialsMapModule'
 // import SearchItem from './components/SearchItem'
 // import ShortDetails from './components/ShortDetails';;
 
-// import axios from 'axios';
+import axios from 'axios';
 // import ShortDetails from './components/ShortDetails'
+const END_POINT = `http://localhost:9000`;
 
 class App extends React.Component {
   state = {
+    usr:{},
     items: [],
     user: {
       _id: "5d6d297e67298e183fc7ae2c",
@@ -62,6 +63,22 @@ class App extends React.Component {
 
     }
   }
+    SearchItemHandler = (input)=>{
+      console.log('input', input)
+      axios
+      .get(`${END_POINT}/searchResult/search/${input.input}`)
+      .then(res => {
+        const data=res.data
+        console.log('data', data)
+          this.setState({items: {
+            data
+          } });
+          if(data.length===0){alert("No Result found Pleses Seacrh Again")}
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
 
    setMyItem =()=>{
      console.log('done setMyItem')
@@ -79,8 +96,9 @@ class App extends React.Component {
       <>
        <Router>
 
+
           <Navbar user={this.state.user} setMyItem={this.setMyItem} />
-      <SearchItem/>
+          <SearchItem SearchItemHandler={this.SearchItemHandler}/>
 
 
       <Route  path="/users"  component={props =>(<User {...props} user={this.state.user}/>)}/>
@@ -88,6 +106,7 @@ class App extends React.Component {
       {/* <Route path="/users/MyItem" component={props =>(<MyItem {...props} user={this.state.user}/>)}/>  */}
       <Route path='/login' component={Login} />
       <Route path='/signup' component={Singup}/>
+          <User user={this.state.user} />
 
       <Route path="/ItemMapSlice" component={props =>(<ItemMapSlice {...props}  items={this.state.user.items}/>)}/> 
 
