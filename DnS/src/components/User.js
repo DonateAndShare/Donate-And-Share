@@ -12,15 +12,7 @@ render(){
   //  console.log('user in user.js', user) 
    return(
      <>
-     {/* <div className="form-group col-md-4">
-      <label>State</label>
-      <select className="form-control" >
-        <option selected></option>
-                    <option >AddItem</option>
-                     <option>My Item</option>
-                      <option >log out</option>
-      </select>
-    </div> */}
+    
      
       {/* <Link  exact to="/users/addItem">
         <button type="submit" onclick={this.additem}>AddItem</button>
